@@ -1,0 +1,36 @@
+---
+title: "Developing Data Products Assignment 2"
+author: "Arushi Nigam"
+date: "31 October 2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+The source code is available at [GitHub](https://github.com/Arushi1912/DevelopingDataProjectsWeek2) 
+
+## Leaflet Map 
+Creating a leaflet...
+```{r cars}
+library(leaflet)
+map <- leaflet() %>% addTiles()
+```
+
+## Create a marker with a picture of Manipal and a link to its homepage.
+```{r}
+ManipalMITLogo <- makeIcon(
+   iconUrl = "https://media.9curry.com/uploads/organization/image/3394/Manipal-University-Logo.png",
+   iconWidth = 30*408/255, iconHeight = 30,
+   iconAnchorX = 30*408/255/2, iconAnchorY = 30/2
+)
+```
+
+## Add the marker to the map and display the map.
+```{r}
+manipalMIT <- c("<a href= 'https://manipal.edu/mu.html'> Manipal Institute of Technology <br><img src='https://media.9curry.com/uploads/organization/image/3394/Manipal-University-Logo.png' width='210' height='132'  alt='MIT, Manipal Institute of Technology' title='MIT, Manipal'></a>")
+map %>%
+   addTiles() %>%
+   addMarkers(lat=13.3490, lng=74.7856, popup = manipalMIT)
+```
